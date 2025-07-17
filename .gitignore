@@ -1,2 +1,4 @@
 venv
 TODO
+src/__pycache__
+ipseeu_export*.txt
