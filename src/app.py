@@ -1,7 +1,7 @@
 import streamlit as st
 from scan import scan
 
-# custom css
+# custom css and favicon injection
 st.markdown(
     """
     <style>
@@ -34,16 +34,16 @@ st.markdown(
 # config page
 st.set_page_config(
     page_title="IPSeeU",
-    page_icon="🌐",
+    page_icon="https://hc-cdn.hel1.your-objectstorage.com/s/v3/7e43a68210d06aeea49e2d39c55f352bbe39a1c9_favicon.png",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
 # Sidebar navigation and content
 st.sidebar.title("IPSeeU Menu")
-page = st.sidebar.radio("Go to", ["Scan", "About"])
+page = st.sidebar.radio("Go to", ["Scanning", "About"])
 
-if page == "Scan":
+if page == "Scanning":
     st.title("IPSeeU")
     st.write("Welcome to IPSeeU. Click the button below to scan your network for all the devices on it.")
 
@@ -77,11 +77,15 @@ elif page == "About":
     - [macvendors.co](https://macvendors.co) for identifying the vendors from mac address.
     - [The PSF](https://www.python.org/psf-landing/) for making the language that this is written in.
     
+    ## Important Stuff
+    - Source Code: https://github.com/hellonearth311/IPSeeU
+    - Report a Bug: https://github.com/hellonearth311/IPSeeU/issues
+    
     ## Socials
                 
-    [GitHub](https://github.com/hellonearth311)
+    - [GitHub](https://github.com/hellonearth311)
     > I write dumb code here :D
                 
-    [YouTube](https://www.youtube.com/@hellonearth311)
-    > I play Geometry Dash here 💔
+    - [YouTube](https://www.youtube.com/@hellonearth311)
+    > I play Geometry Dash here 🥀
     """)
