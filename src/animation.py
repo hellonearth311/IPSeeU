@@ -180,4 +180,4 @@ def radar_animation(unique_key=None):
         height=400,
     )
     t.sleep(5)
-    st.success("Scan complete!")
+    st.success("Scan complete! Loading results...")

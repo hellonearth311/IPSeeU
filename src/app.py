@@ -40,10 +40,15 @@ if 'scan_count' not in st.session_state:
     st.session_state['scan_count'] = 0
 
 if st.button("Scan"):
-    st.session_state['scan_results'] = None  # Clear previous results
-    st.session_state['scan_count'] += 1  # Increment to create unique component key
-    result = scan(st.session_state['scan_count'])  # Pass the count for unique key
+    st.session_state['scan_results'] = None
+    st.session_state['scan_count'] += 1
+    result = scan(st.session_state['scan_count'])
     st.session_state['scan_results'] = result
 
 if st.session_state['scan_results'] is not None:
-    st.write(st.session_state['scan_results'])
+    if isinstance(st.session_state['scan_results'], list) and len(st.session_state['scan_results']) > 0:
+        st.table(st.session_state['scan_results'])
+    elif isinstance(st.session_state['scan_results'], list):
+        st.info("No devices found on the network.")
+    else:
+        st.write(st.session_state['scan_results'])
