@@ -100,10 +100,17 @@ def radar_animation(unique_key=None):
                 ctx.fillStyle = gradient;
                 ctx.fill();
                 
-                // Draw sweep line
+                // Draw sweep line at leading edge
                 ctx.beginPath();
                 ctx.moveTo(centerX, centerY);
                 ctx.lineTo(centerX + radius * Math.cos(angle), centerY + radius * Math.sin(angle));
+                ctx.strokeStyle = '#39ff14';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                // Draw sweep line at trailing edge
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(centerX + radius * Math.cos(angle + sweepLength), centerY + radius * Math.sin(angle + sweepLength));
                 ctx.strokeStyle = '#39ff14';
                 ctx.lineWidth = 2;
                 ctx.stroke();
@@ -123,10 +130,17 @@ def radar_animation(unique_key=None):
                 ctx.fillStyle = gradient;
                 ctx.fill();
                 
-                // Draw static sweep line
+                // Draw static sweep line at leading edge
                 ctx.beginPath();
                 ctx.moveTo(centerX, centerY);
                 ctx.lineTo(centerX + radius * Math.cos(frozenAngle), centerY + radius * Math.sin(frozenAngle));
+                ctx.strokeStyle = '#39ff14';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                // Draw static sweep line at trailing edge
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(centerX + radius * Math.cos(frozenAngle + sweepLength), centerY + radius * Math.sin(frozenAngle + sweepLength));
                 ctx.strokeStyle = '#39ff14';
                 ctx.lineWidth = 2;
                 ctx.stroke();
