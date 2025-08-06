@@ -34,23 +34,16 @@ st.markdown(
 st.title("IPSeeU")
 st.write("Welcome to IPSeeU. Click the button below to scan your network for all the devices on it.")
 
-if 'scanning' not in st.session_state:
-    st.session_state['scanning'] = False
 if 'scan_results' not in st.session_state:
     st.session_state['scan_results'] = None
+if 'scan_count' not in st.session_state:
+    st.session_state['scan_count'] = 0
 
-scan_button_placeholder = st.empty()
-results_placeholder = st.empty()
+if st.button("Scan"):
+    st.session_state['scan_results'] = None  # Clear previous results
+    st.session_state['scan_count'] += 1  # Increment to create unique component key
+    result = scan(st.session_state['scan_count'])  # Pass the count for unique key
+    st.session_state['scan_results'] = result
 
-if not st.session_state['scanning']:
-    if scan_button_placeholder.button("Scan", key="scan_button"):
-        st.session_state['scanning'] = True
-        scan_button_placeholder.markdown("**Scanning...**")
-        result = scan()
-        st.session_state['scan_results'] = result
-        st.session_state['scanning'] = False
-        st.rerun()
-    elif st.session_state['scan_results'] is not None:
-        results_placeholder.write(st.session_state['scan_results'])
-else:
-    scan_button_placeholder.markdown("**Scanning...**")
+if st.session_state['scan_results'] is not None:
+    st.write(st.session_state['scan_results'])

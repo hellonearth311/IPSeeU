@@ -2,14 +2,14 @@ import streamlit as st
 import streamlit.components.v1 as components
 import time as t
 
-def radar_animation():
+def radar_animation(unique_key=None):
     # radar animation
     components.html(
         f'''
-        <canvas id="radarCanvas" width="300" height="300" style="background: transparent;"></canvas>
-        <div id="scanMessage" style="color: #39ff14; font-family: Fira Mono, monospace; text-align: center; margin-top: 10px;"></div>
+        <canvas id="radarCanvas_{unique_key}" width="300" height="300" style="background: transparent;"></canvas>
+        <div id="scanMessage_{unique_key}" style="color: #39ff14; font-family: Fira Mono, monospace; text-align: center; margin-top: 10px;"></div>
         <script>
-        const canvas = document.getElementById('radarCanvas');
+        const canvas = document.getElementById('radarCanvas_{unique_key}');
         const ctx = canvas.getContext('2d');
         const centerX = canvas.width / 2;
         const centerY = canvas.height / 2;
