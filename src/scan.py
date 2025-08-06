@@ -1,4 +1,4 @@
-import streamlit as st
+from animation import radar_animation
 
-def hack_function():
-    st.success("Scanning...")
+def scan():
+    radar_animation()
