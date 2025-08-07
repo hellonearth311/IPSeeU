@@ -26,7 +26,26 @@ st.markdown(
         background-color: #39ff14;
         color: #222;
     }
+    #MainMenu {visibility: hidden;}
+    .stDeployButton {display:none;}
+    footer {visibility: hidden;}
+    /* Hide Deploy button with multiple methods */
+    button[title="Deploy"] {display: none !important;}
+    button[data-testid="stDeployButton"] {display: none !important;}
+    .stApp > header {display: none !important;}
+    header[data-testid="stHeader"] {display: none !important;}
+    div[data-testid="stToolbar"] {display: none !important;}
+    /* Custom navigation buttons styling */
+    .nav-button {
+        margin-right: 10px;
+    }
+
+    div[data-testid="column"] .stButton > button {
+        width: 100% !important;
+        white-space: nowrap;
+    }
     </style>
+    <link rel="icon" href="https://www.python.org/static/favicon.ico" type="image/x-icon">
     """,
     unsafe_allow_html=True
 )
@@ -34,17 +53,34 @@ st.markdown(
 # config page
 st.set_page_config(
     page_title="IPSeeU",
-    page_icon="https://hc-cdn.hel1.your-objectstorage.com/s/v3/7e43a68210d06aeea49e2d39c55f352bbe39a1c9_favicon.png",
+    page_icon="https://www.python.org/static/favicon.ico",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': None
+    }
 )
 
-# Sidebar navigation and content
-st.sidebar.title("IPSeeU Menu")
-page = st.sidebar.radio("Go to", ["Scanning", "About"])
+col1, col2, col3 = st.columns([2, 2, 6])
+
+if 'current_page' not in st.session_state:
+    st.session_state.current_page = "Scanning"
+
+with col1:
+    if st.button("🔍 Scanning", key="scan_btn", use_container_width=True):
+        st.session_state.current_page = "Scanning"
+
+with col2:
+    if st.button("ℹ️ About", key="about_btn", use_container_width=True):
+        st.session_state.current_page = "About"
+
+page = st.session_state.current_page
+
+st.title("IPSeeU")
 
 if page == "Scanning":
-    st.title("IPSeeU")
     st.write("Welcome to IPSeeU. Click the button below to scan your network for all the devices on it.")
 
     if 'scan_results' not in st.session_state:
