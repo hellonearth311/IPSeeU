@@ -26,11 +26,6 @@ pyarrow==21.0.0
 pydeck==0.9.1
 pyinstaller==6.15.0
 pyinstaller-hooks-contrib==2025.8
-pyobjc-core==11.1
-pyobjc-framework-Cocoa==11.1
-pyobjc-framework-Quartz==11.1
-pyobjc-framework-Security==11.1
-pyobjc-framework-WebKit==11.1
 python-dateutil==2.9.0.post0
 pytz==2025.2
 pywebview==5.4
