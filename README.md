@@ -26,5 +26,5 @@ Also, you can build from source if the precompiled binaries don't have your OS. 
  - On Windows: `.\venv\Scripts\activate.bat`
 4. Run the following commands:
  - `pip install -r requirements.txt`
- - `pyinstaller --noconfirm --onefile --windowed src/desktop.py`
+ - `pyinstaller desktop.spec`
 5. Check in the `dist` folder for the executable.

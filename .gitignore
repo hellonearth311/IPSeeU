@@ -3,4 +3,4 @@ src/__pycache__/
 .vscode
 build
 dist
-desktop.spec
+**/.DS_Store

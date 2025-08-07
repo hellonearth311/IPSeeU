@@ -45,7 +45,6 @@ st.markdown(
         white-space: nowrap;
     }
     </style>
-    <link rel="icon" href="https://www.python.org/static/favicon.ico" type="image/x-icon">
     """,
     unsafe_allow_html=True
 )
