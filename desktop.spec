@@ -40,8 +40,13 @@ for pkg in [
 # Project app and assets
 datas += [
     ('src/app.py', '.'),
+    ('src/scan.py', '.'),
+    ('src/animation.py', '.'),
     ('src/assets', 'assets'),
 ]
+
+# Add local modules to hidden imports
+hiddenimports += ['scan', 'animation']
 
 a = Analysis(
     ['src/desktop.py'],
