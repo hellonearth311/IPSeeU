@@ -1,6 +1,0 @@
-Starting Streamlit server for app: C:\Users\naran\AppData\Local\Temp\_MEI7202\app.py
-App exists: True
-About to call stcli.main() with args: ['streamlit', 'run', 'C:\\Users\\naran\\AppData\\Local\\Temp\\_MEI7202\\app.py', '--server.headless=true', '--server.address=127.0.0.1', '--global.developmentMode=false', '--server.enableCORS=false', '--server.enableXsrfProtection=false']
-Waiting for health check on port 8501...
-Health check passed on port 8501.
-Root page check: 200 (Length: 1522)

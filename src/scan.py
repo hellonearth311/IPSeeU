@@ -1,24 +1,6 @@
 import subprocess
 import re
 import requests
-import threading
-
-from animation import radar_animation
-
-_scan_result = None
-
-def _scan_worker():
-    global _scan_result
-    _scan_result = _scan_devices()
-
-def scan(unique_key=None):
-    global _scan_result
-    _scan_result = None
-    scan_thread = threading.Thread(target=_scan_worker)
-    scan_thread.start()
-    radar_animation(unique_key)
-    scan_thread.join()
-    return _scan_result
 
 def _lookup_vendor(mac):
     try:
