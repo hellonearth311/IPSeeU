@@ -51,6 +51,7 @@ exe = EXE(
     runtime_tmpdir=None,
     console=False,
     icon=icon_file if icon_file else None,
+    onefile=True,
 )
 
 dist = COLLECT(
