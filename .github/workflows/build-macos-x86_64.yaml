@@ -1,0 +1,30 @@
+name: Build macOS x86_64 Binary
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-13
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Build binary with PyInstaller
+      run: pyinstaller desktop.spec
+
+    - name: Upload macOS binary
+      uses: actions/upload-artifact@v4
+      with:
+        name: macos-x86_64-binary
+        path: dist/*

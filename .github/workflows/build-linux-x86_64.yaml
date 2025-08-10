@@ -1,4 +1,4 @@
-name: Build EXE on Windows
+name: Build Linux x86_64 Binary
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -15,16 +15,16 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.13'
+        python-version: '3.11'
 
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    - name: Build EXE
+    - name: Build binary with PyInstaller
       run: pyinstaller desktop.spec
 
-    - name: Upload EXE
+    - name: Upload Linux binary
       uses: actions/upload-artifact@v4
       with:
-        name: windows-exe
-        path: dist/*.exe
+        name: linux-x86_64-binary
+        path: dist/*

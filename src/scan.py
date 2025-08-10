@@ -28,6 +28,5 @@ def _scan_devices():
         if match:
             ip = match.group(1)
             mac = match.group(2)
-            vendor = _lookup_vendor(mac)
-            devices.append({'ip': ip, 'mac': mac, 'vendor': vendor})
+            devices.append({'ip': ip, 'mac': mac})
     return devices
