@@ -60,7 +60,7 @@ if sys.platform == 'darwin':
         bundle_identifier=None
     )
     dist = COLLECT(
-        app,
+        exe,
         a.binaries,
         a.zipfiles,
         a.datas,
